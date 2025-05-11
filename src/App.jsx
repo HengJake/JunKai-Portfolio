@@ -1,34 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.scss";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./components/navBar";
+import Home from "./containers/Home/index";
+import About from "./containers/About/index";
+import Contact from "./containers/Contact/index";
+import Portfolio from "./containers/Portfolio/index";
+import Resume from "./containers/Resume/index";
+import Skills from "./containers/Skills/index";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import particlesOptions from "./util/particle.js";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const location = useLocation();
+
+  const handleInit = async (main) => {
+    await loadFull(main);
+  };
+
+  const renderParticle = location.pathname === "/";
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      {/*particle*/}
+
+      {renderParticle && (
+        <Particles
+          id="particles"
+          init={handleInit}
+          options={particlesOptions}
+        />
+      )}
+
+      {/*navbar*/}
+      <Navbar />
+
+      {/*Main content */}
+      <div className="App__main-page-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Portfolio" element={<Portfolio />} />
+          <Route path="/Resume" element={<Resume />} />
+          <Route path="/Skills" element={<Skills />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
