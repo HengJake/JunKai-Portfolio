@@ -1,0 +1,36 @@
+.timeline {
+  display: flex;
+  flex-direction: row;
+
+  margin: var(--space-md) var(--space-lg);
+
+  &__experience,
+  &__education {
+    width: 50%; 
+
+    &__title {
+      margin: var(--space-sm) var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      // border-left: 3px solid var(--color-dark-5);
+      text-align: center;
+    }
+  }
+}
+
+.vertical_timeline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    &__experience, &__education {
+      width: 100%;
+      &__title {
+          border-bottom: 3px solid var(--color-dark-1);
+      }
+    }
+  }
+}

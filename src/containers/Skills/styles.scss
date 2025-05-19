@@ -1,0 +1,31 @@
+.skills {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+
+    margin: var(--space-md) var(--space-lg);
+
+    &__content {
+      flex-grow: 1;
+
+      h4 {
+        font-size: var(--font-size-lg);
+      }
+
+      &__innerList {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .skills {
+    &__container {
+        flex-direction: column;
+    }
+  }
+}

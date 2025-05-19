@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-dark-5);
+  border-bottom: 3px solid var(--color-dark-5);
+
+  h2 {
+    font-size: 40px;
+    text-transform: capitalize;
+    flex-grow: 1;
+  }
+}
