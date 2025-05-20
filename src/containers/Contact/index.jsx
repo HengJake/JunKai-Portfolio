@@ -1,6 +1,7 @@
 import React from "react";
 import {BsInfoCircleFill} from 'react-icons/bs';
 import PageHeaderContent from "../../components/pageHeader";
+import "./styles.scss";
 
 const Contact = () => {
   return (

@@ -11,7 +11,7 @@ import { FaGraduationCap } from "react-icons/fa";
 const aboutMeDetails = [
   {
     label: "Name",
-    value: "John Doe",
+    value: "Heng Jun Kai",
   },
   {
     label: "Age",
@@ -53,25 +53,39 @@ const About = () => {
         <div className="about__container__personalWrapper">
           <Animate
             play={playAnimation}
-            duration={1}
+            duration={0.3}
             delay={0.3}
             start={{
-              transform: "translateX(-1500px)",
+              transform: "translateX(-800px)",
             }}
             end={{
               transform: "translateX(0px)",
             }}
           >
             <h3>Diploma Student (Final Year)</h3>
-            <p className="border-b-2 pb-3">{summary}</p>
+            <p className="">{summary}</p>
+          </Animate>
+          
+          <Animate
+            play={playAnimation}
+            duration={0.3}
+            delay={0.3}
+            start={{
+              transform: "translateX(-800px)",
+            }}
+            end={{
+              transform: "translateX(0px)",
+            }}
+          >
+            <div className="divider"></div>
           </Animate>
 
           <Animate
             play={playAnimation}
-            duration={1}
+            duration={0.3}
             delay={0.3}
             start={{
-              transform: "translateX(1500px)",
+              transform: "translateX(-800px)",
             }}
             end={{
               transform: "translateX(0px)",
@@ -92,7 +106,7 @@ const About = () => {
         <div className="about__container__serviceWrapper">
           <Animate
             play={playAnimation}
-            duration={1}
+            duration={0.3}
             delay={0.3}
             start={{
               transform: "translateX(800px)",

@@ -180,3 +180,10 @@ a:visited {
 button {
   padding: var(--space-sm) var(--space-md);
 }
+
+.divider {
+  width: 100%;
+  height: 5px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-dark-1);
+}
