@@ -1,3 +1,81 @@
 .contact {
-      flex-grow: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 50px;
+    grid-template-areas:
+      "nm em"
+      "ds ds"
+      "btn btn";
+    gap: var(--space-sm);
+
+    margin: var(--space-md) var(--space-lg);
+
+    button {
+      grid-area: btn;
+      border-radius: var(--border-radius);
+      background-color: var(--color-dark-1);
+      color: var(--color-light-1);
+      font-size: var(--font-size-lg);
+      border: none;
+      box-shadow: 4px 4px 10px 0px var(--color-dark-1);
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: var(--color-dark-1);
+        background-color: var(--color-light-1);
+      }
+    }
+
+    &__inner {
+      border: 3px solid var(--color-dark-5);
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+
+      & label {
+        transition: all 0.5s ease;
+        padding: var(--space-md) var(--space-lg);
+        font-weight: 800;
+      }
+
+      & input {
+        transition: all 0.5s ease;
+        padding: var(--space-md) var(--space-lg);
+        flex-grow: 1;
+        border: none;
+        background-color: var(--color-light-3);
+      }
+
+      & input:focus {
+        outline: none;
+        background-color: var(--color-light-4);
+      }
+
+      &:has(input:focus) label {
+        background-color: var(--color-dark-4);
+        color: white;
+      }
+    }
+
+    &__inner.name {
+      grid-area: nm;
+    }
+    &__inner.email {
+      grid-area: em;
+    }
+    &__inner.desc {
+      grid-area: ds;
+    }
+
+    button:disabled {
+      background-color: rgb(80, 80, 80);
+      cursor: not-allowed;
+      // pointer-events: none;
+    }
+  }
 }
