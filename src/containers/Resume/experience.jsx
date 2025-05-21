@@ -1,3 +1,5 @@
+import A1 from "../../assets/ArtSocietyCert/Jun Kai resignation cert_page-0001.jpg";
+
 export const resumeExperience = {
   experience: [
     {
@@ -9,6 +11,7 @@ export const resumeExperience = {
         "Collaborated with local artists and students to organize live demonstrations and themed events",
         "Promoted events through posters, social media, and campus announcements",
       ],
+      cert: A1,
     },
     {
       title: "Volleyball Club",
@@ -18,6 +21,30 @@ export const resumeExperience = {
         "Guided new members during weekly volleyball sessions, focusing on basic skills and team coordination",
         "Provided one-on-one mentoring to beginners to help improve technique and confidence",
         "Helped organize friendly matches and inter-club competitions to build teamwork and engagement",
+      ],
+      cert: null,
+    },
+  ],
+  workExperience: [
+    {
+      title: "KUMON Bandar Tasek Mutiara",
+      role: "Part Time Tuition Teacher",
+      duration: "Jan 2025 - May 2025",
+      responsibilities: [
+        "Monitoring students (age range 5–14)",
+        "Organizing student worksheets",
+        "Working as a team",
+      ],
+    },
+    {
+      title: "Workie Workie, Kuchai Lama",
+      role: "Part Time Receptionist",
+      duration: "Event Based",
+      responsibilities: [
+        "Welcome and assist visitors/clients",
+        "Open/closing shift",
+        "Maintain the front desk in an organized manner",
+        "Perform data entry (MS Excel)",
       ],
     },
   ],

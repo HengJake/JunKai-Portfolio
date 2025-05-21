@@ -8,7 +8,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { resumeExperience } from "./experience";
 import "./styles.scss";
-import { MdWork } from "react-icons/md";
+import { MdWork, MdGroups } from "react-icons/md";
 import { FaGraduationCap } from "react-icons/fa";
 
 const Resume = () => {
@@ -20,9 +20,38 @@ const Resume = () => {
       />
       <div className="timeline">
         <div className="timeline__experience">
-          <h3 className="timeline__experience__title">Experience</h3>
+          <h3 className="timeline__experience__title">Club Experience</h3>
           <VerticalTimeline layout={"1-column"} lineColor="var(--color-dark-1)">
             {resumeExperience.experience.map((item, i) => (
+              <VerticalTimelineElement
+                key={i}
+                className="timeline__experience__element"
+                icon={<MdGroups />}
+                iconStyle={{
+                  background: "var(--color-light-1)",
+                  color: "var(--color-dark-1)",
+                }}
+              >
+                <div className="vertical_timeline">
+                  <h3 className="vertical_timeline__title">{item.title}</h3>
+                  <h5 className="vertical_timeline__subtitle">{item.role}</h5>
+                  <small className="vertical_timeline__duration">
+                    {item.duration}
+                  </small>
+                  <ul className="vertical_timeline__description">
+                    {item.responsibilities.map((res, k) => (
+                      <li>{res}</li>
+                    ))}
+                  </ul>
+                </div>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </div>
+        <div className="timeline__experience">
+          <h3 className="timeline__experience__title">Work Experience</h3>
+          <VerticalTimeline layout={"1-column"} lineColor="var(--color-dark-1)">
+            {resumeExperience.workExperience.map((item, i) => (
               <VerticalTimelineElement
                 key={i}
                 className="timeline__experience__element"
@@ -38,9 +67,11 @@ const Resume = () => {
                   <small className="vertical_timeline__duration">
                     {item.duration}
                   </small>
-                  <p className="vertical_timeline__description">
-                    {item.responsibilities}
-                  </p>
+                  <ul>
+                    {item.responsibilities.map((res, j) => (
+                      <li key={j}>{res}</li>
+                    ))}
+                  </ul>
                 </div>
               </VerticalTimelineElement>
             ))}
@@ -53,7 +84,7 @@ const Resume = () => {
               <VerticalTimelineElement
                 key={i}
                 className="timeline__experience__element"
-                icon={<FaGraduationCap/>}
+                icon={<FaGraduationCap />}
                 iconStyle={{
                   background: "var(--color-light-1)",
                   color: "var(--color-dark-1)",
