@@ -63,6 +63,7 @@ const About = () => {
             }}
           >
             <h3>Diploma Student (Final Year)</h3>
+            <small>Diploma in ICT specialism in Software Engineering</small>
             <p className="">{summary}</p>
           </Animate>
           

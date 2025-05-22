@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
 import PageHeaderContent from "../../components/pageHeader";
 import {
@@ -12,6 +12,10 @@ import { MdWork, MdGroups } from "react-icons/md";
 import { FaGraduationCap } from "react-icons/fa";
 
 const Resume = () => {
+  const [visibleCertIndex, setVisibleCertIndex] = useState(null);
+  const [viewWork, setViewWork] = useState(null);
+  const [viewClub, setViewClub] = useState(null);
+
   return (
     <section id="resume" className="resume">
       <PageHeaderContent
@@ -20,7 +24,9 @@ const Resume = () => {
       />
       <div className="timeline">
         <div className="timeline__experience">
-          <h3 className="timeline__experience__title">Club Experience</h3>
+          <h3 className="timeline__experience__title">
+            Co - curricular activity
+          </h3>
           <VerticalTimeline layout={"1-column"} lineColor="var(--color-dark-1)">
             {resumeExperience.experience.map((item, i) => (
               <VerticalTimelineElement
@@ -38,11 +44,46 @@ const Resume = () => {
                   <small className="vertical_timeline__duration">
                     {item.duration}
                   </small>
+
+                  {item.link != null ? (
+                    <div className="mt-3">
+                      <strong>Club Link : </strong>
+                      <a className="clubLink" href={item.link} target="blank">
+                        {item.link}
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <ul className="vertical_timeline__description">
                     {item.responsibilities.map((res, k) => (
-                      <li>{res}</li>
+                      <li key={k}>{res}</li>
                     ))}
                   </ul>
+
+                  <button
+                    onClick={() => setViewClub(viewClub === i ? null : i)}
+                  >
+                    {viewClub === i ? "Hide Image" : "Show Image"}
+                  </button>
+
+                  {viewClub === i ? (
+                    <div className="workImgContainer">
+                      {item.photo.map((photos, z) => (
+                        <div key={z}>
+                          <small>{photos.desc}</small>
+                          <img
+                            src={photos.photo}
+                            key={z}
+                            className="clubImage"
+                            alt={`Club Image ${z + 1}`}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </VerticalTimelineElement>
             ))}
@@ -72,6 +113,27 @@ const Resume = () => {
                       <li key={j}>{res}</li>
                     ))}
                   </ul>
+
+                  <button
+                    onClick={() => setViewWork(viewWork === i ? null : i)}
+                  >
+                    {viewWork === i ? "Hide Image" : "Show Image"}
+                  </button>
+
+                  {viewWork === i ? (
+                    <div className="workImgContainer">
+                      {item.photo.map((img, z) => (
+                        <img
+                          src={img}
+                          key={z}
+                          className="workImage"
+                          alt={`Work Image ${z + 1}`}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </VerticalTimelineElement>
             ))}
@@ -97,11 +159,41 @@ const Resume = () => {
                   </h5>
                   <small className="vertical_timeline__duration">
                     {item.duration}
-                  </small>{" "}
-                  <br />
-                  <small className="vertical_timeline__description">
-                    {item.grade}
                   </small>
+                  <span className="vertical_timeline__description grade">
+                    <strong>Grade : </strong>
+                    {item.grade}
+                  </span>
+                  <div className="divider"></div>
+                  <img src={item.img} alt="Picture of campus" />
+                  <a href={item.link} target="blank">
+                    Link to Website
+                  </a>
+
+                  <button
+                    onClick={() =>
+                      // retrieve the index of showing cert
+                      setVisibleCertIndex(visibleCertIndex === i ? null : i)
+                    }
+                  >
+                    {visibleCertIndex === i
+                      ? "Hide Certification"
+                      : "Show Certification"}
+                  </button>
+
+                  {visibleCertIndex === i ? (
+                    <div className="certContainer">
+                      {item.cert.map((pic, z) => (
+                        <img
+                          src={pic}
+                          alt={`Certifications ${z + 1}`}
+                          key={z}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </VerticalTimelineElement>
             ))}

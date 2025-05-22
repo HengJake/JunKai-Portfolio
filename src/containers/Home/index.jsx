@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Animate } from "react-simple-animate";
 import { useState, useEffect } from "react";
 
-
 const Home = () => {
   const navigate = useNavigate();
 
@@ -24,8 +23,9 @@ const Home = () => {
     <section id="home" className="home">
       <div className="home__text-wrapper">
         <h1>
-          Welcome to <span>Jun Kai's</span> <br />
-          Portfolio
+          <span>Jun Kai</span>
+          <br />
+          Software Developer
         </h1>
       </div>
       <Animate
