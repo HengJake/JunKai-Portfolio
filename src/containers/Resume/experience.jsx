@@ -54,7 +54,6 @@ export const resumeExperience = {
       responsibilities: [
         "These are the certificate/ achievement i have receive throughout my year at my highschool and outside of school"
       ],
-      link: "",
       link : null,
       photo: [
         { photo: fball1, desc: "U15 Football Competition" },
