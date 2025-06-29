@@ -4,6 +4,7 @@ import PageHeaderContent from "../../components/pageHeader";
 import { skillsData } from "./skillSet";
 import SkillBar from "./skillBar";
 import "./styles.scss";
+import certImage from "../../assets/interncert.jpg";
 
 const Skills = () => {
   return (
@@ -25,6 +26,20 @@ const Skills = () => {
             ))}
           </div>
         ))}
+      </div>
+      <div
+        className="skills__container"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <h4 className="mb-3 border-b-2">Certifications</h4>
+        <a
+          href="https://github.com/HengJake/Internship_Simple-Booking-System"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Project
+        </a>
+        <img src={certImage} alt="Certification" style={{ width: "400px" }} />
       </div>
     </section>
   );
